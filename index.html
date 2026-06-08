@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Web | Pino Sidabutar</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon / Ikon Tab Browser -->
+    <link rel="icon" href="https://lh3.googleusercontent.com/d/1UWJludC5R-71q4dz_C6QtCPUqQg43fhU" type="image/x-icon">
+
+    <!-- Meta Thumbnail (Open Graph) untuk Link Preview (WhatsApp, LinkedIn, dll) -->
+    <meta property="og:title" content="Profil Web | Pino Sidabutar">
+    <meta property="og:description" content="Sistem Informasi graduate & Full-Stack Developer. Bridging the gap between robust backend architecture and intuitive UI/UX design.">
+</head>
+<body>
+    <!-- Navigasi Utama -->
+    <nav>
+        <div class="logo">PINO<span class="text-accent">_SIDABUTAR</span></div>
+    </nav>
+
+    <!-- Bagian Hero/Header -->
+    <header class="hero">
+        <!-- Efek Glow Latar Belakang -->
+        <div class="glow-blob glow-blob-1"></div>
+        <div class="glow-blob glow-blob-2"></div>
+        
+        <div class="hero-content">
+            <!-- Avatar / Foto Profil dengan Efek Cyber -->
+            <div class="hero-avatar" onclick="openModal('avatar-modal')">
+                <img src="https://lh3.googleusercontent.com/d/16DsNOC-1f-3atP-_9qr1f50lhsE0d58f" alt="Foto Pino Sidabutar">
+            </div>
+
+            <div class="badge open-to-work">
+                <span class="pulse-dot"></span> Open to Work / Tech-Creative
+            </div>
+            <h1>DAPOT H.Y. <span class="text-accent">SIDABUTAR</span></h1>
+            <p class="tagline">Sistem Informasi graduate & <strong>Full-Stack Developer</strong>. Bridging the gap between <span class="code-text">[robust backend architecture]</span> and intuitive <span class="highlight-text">UI/UX design</span> to deliver scalable digital solutions.</p>
+            <div class="hero-actions">
+                <a href="#portfolio" class="btn btn-primary">View Projects</a>
+                <a href="https://www.linkedin.com/in/dapothys/" target="_blank" class="btn btn-outline">Connect_LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Konten Utama -->
+    <main>
+        <!-- Tentang Saya -->
+        <section id="about" class="card scroll-reveal">
+            <h3><i class="fas fa-user"></i> Ringkasan Profil</h3>
+            <p>Merupakan lulusan baru (<em>recent graduate</em>) dari <strong>Universitas Komputer Indonesia</strong> dengan gelar Sarjana <strong>Manajemen Sistem Informasi</strong>. Saya memiliki perpaduan keahlian analitis di bidang arsitektur teknologi informasi (<em>IT Infrastructure & Network</em>) dan keterampilan kreatif dalam desain antarmuka pengguna (<strong>UI/UX</strong>) serta pengembangan web. Terbukti mampu beradaptasi di lingkungan kerja bertekanan tinggi dan ekstrem, dengan fokus pada pemberian solusi berorientasi pengguna (<em>user-focused</em>) dan optimalisasi proses bisnis. Saat ini mencari peluang karir penuh waktu untuk berkontribusi secara profesional.</p>
+        </section>
+
+        <!-- Keahlian -->
+        <section id="skills" class="card scroll-reveal">
+            <h3><i class="fas fa-code"></i> Keahlian & Fokus Layanan</h3>
+            <div class="skills-grid">
+                <span class="skill-tag">Web Design</span>
+                <span class="skill-tag">Web Development</span>
+                <span class="skill-tag">UI Design</span>
+                <span class="skill-tag">Desain Grafis</span>
+                <span class="skill-tag">Kemampuan Organisasi</span>
+            </div>
+        </section>
+
+        <!-- Pengalaman Kerja -->
+        <section id="experience" class="card scroll-reveal">
+            <h3><i class="fas fa-briefcase"></i> Pengalaman Kerja</h3>
+            <div class="timeline">
+                <div class="timeline-item clickable" onclick="openModal('freeport-modal')">
+                    <h4>Internship (Magang)</h4>
+                    <h5>Freeport Indonesia | GBC Construction & Production, Mine_Underground <span>(4 Bulan)</span></h5>
+                    <p>Mengaplikasikan ilmu Jaringan Komputer dan Sistem Informasi secara langsung pada infrastruktur tambang bawah tanah. Mendukung operasional tim melalui konfigurasi jaringan dan optimasi sistem pelaporan.</p>
+                    <span class="btn-link text-accent" style="display:inline-block; margin-top: 10px; font-size: 0.9em; font-family: var(--font-mono);"><i class="fas fa-external-link-alt"></i> Lihat Dokumentasi & Validasi Magang</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portofolio -->
+        <section id="portfolio" class="card scroll-reveal">
+            <h3><i class="fas fa-folder-open"></i> Portofolio Proyek</h3>
+            <div class="portfolio-grid">
+                <!-- Proyek 1 -->
+                <div class="portfolio-item" onclick="openModal('saroha-modal')">
+                    <img src="https://lh3.googleusercontent.com/d/17hNPPRmvNoVy_lhrnoXyTNvAG26BA7Fi" alt="Saroha Catering Thumbnail">
+                    <div class="portfolio-content">
+                        <h4>Saroha Catering System</h4>
+                        <p>Sistem informasi B2B & B2C MVC Native PHP terpadu dengan integrasi Midtrans, manajemen operasional logistik, dan kalender reservasi.</p>
+                        <span class="btn-link text-accent" style="display:inline-block; margin-top: 10px; font-size: 0.9em; font-family: var(--font-mono);"><i class="fas fa-external-link-alt"></i> Lihat Detail</span>
+                    </div>
+                </div>
+                <!-- Proyek 2 -->
+                <div class="portfolio-item" onclick="openModal('afya-modal')">
+                    <img src="https://lh3.googleusercontent.com/d/1QDGjTC0Lwmv0XPTLTyLcsdBy0dytgDXv" alt="Afya Hermina Thumbnail">
+                    <div class="portfolio-content">
+                        <h4>Afya Hermina (Smart RCM)</h4>
+                        <p>Sistem manajemen rumah sakit berfokus pada optimalisasi Revenue Cycle Management, gatekeeping piutang, dan pencegahan kebocoran pendapatan.</p>
+                        <span class="btn-link text-accent" style="display:inline-block; margin-top: 10px; font-size: 0.9em; font-family: var(--font-mono);"><i class="fas fa-external-link-alt"></i> Lihat Detail</span>
+                    </div>
+                </div>
+                <!-- Proyek 3 -->
+                <div class="portfolio-item" onclick="openModal('design-modal')">
+                    <img src="https://lh3.googleusercontent.com/d/12t_H9oSD3CQI58XLDjTKEr3imVyZOJkD" alt="Kartu Nama Thumbnail">
+                    <div class="portfolio-content">
+                        <h4>Desain Kartu Nama (Saroha Jaya & Liza Catering)</h4>
+                        <p>Desain visual kartu nama profesional menggunakan Adobe Photoshop untuk dua merek katering, menonjolkan identitas merek yang unik.</p>
+                        <span class="btn-link text-accent" style="display:inline-block; margin-top: 10px; font-size: 0.9em; font-family: var(--font-mono);"><i class="fas fa-external-link-alt"></i> Lihat Detail</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sertifikasi & Kursus -->
+        <section id="certifications" class="card scroll-reveal">
+            <h3><i class="fas fa-certificate"></i> Kursus & Sertifikasi Terbaru</h3>
+            <ul class="cert-list">
+                <li class="clickable" onclick="openCert('https://lh3.googleusercontent.com/d/1OJqE3qSF88lYyz6wVgTVVH9_dot92ORb')"><strong>Practical GitHub Actions</strong> - Pemahaman alur kerja DevOps & otomatisasi. <i class="fas fa-external-link-alt text-accent" style="font-size: 0.8em; margin-left: 5px;"></i></li>
+                <li class="clickable" onclick="openCert('https://lh3.googleusercontent.com/d/1mQ8Atr5QRGk58mb2HwUc1t8mxqli6nav')"><strong>Photoshop 2025 Essential Training</strong> (Julieanne Kost) - Desain grafis dan UI. <i class="fas fa-external-link-alt text-accent" style="font-size: 0.8em; margin-left: 5px;"></i></li>
+                <li class="clickable" onclick="openCert('https://lh3.googleusercontent.com/d/1TBHf2K5k8qQkKQUoCOnjalkm-ynM0GSD')"><strong>HTML Essential Training</strong> (Jen Simmons) - Dasar pengembangan web. <i class="fas fa-external-link-alt text-accent" style="font-size: 0.8em; margin-left: 5px;"></i></li>
+                <li class="clickable" onclick="openModal('cert-linkedin-modal')"><strong>Junior Web Programmer (BNSP)</strong> - Sertifikasi kompetensi nasional pemrograman web. <i class="fas fa-info-circle text-accent" style="font-size: 0.8em; margin-left: 5px;"></i></li>
+                <li class="clickable" onclick="openModal('cert-linkedin-modal')"><strong>Cisco Packet Tracer</strong> - Simulasi dan konfigurasi topologi jaringan komputer. <i class="fas fa-info-circle text-accent" style="font-size: 0.8em; margin-left: 5px;"></i></li>
+                <li class="clickable" onclick="openModal('cert-linkedin-modal')"><strong>Project Portfolio Management Foundations</strong>. <i class="fas fa-info-circle text-accent" style="font-size: 0.8em; margin-left: 5px;"></i></li>
+                <li class="clickable" onclick="openModal('cert-linkedin-modal')"><strong>Ethical Hacking</strong>. <i class="fas fa-info-circle text-accent" style="font-size: 0.8em; margin-left: 5px;"></i></li>
+                <li class="clickable" onclick="openModal('cert-linkedin-modal')"><strong>Getting Your Ideas Approved</strong> (Mike Figliuolo) - Keterampilan komunikasi bisnis dan persuasi. <i class="fas fa-info-circle text-accent" style="font-size: 0.8em; margin-left: 5px;"></i></li>
+            </ul>
+        </section>
+
+        <!-- Hubungi Saya (Contact) -->
+        <section id="contact" class="card scroll-reveal">
+            <h3><i class="fas fa-envelope"></i> Hubungi Saya</h3>
+            <p style="margin-bottom: 1.5rem;">Mari berkolaborasi! Anda dapat mengirimkan pesan langsung melalui formulir di bawah ini (terhubung ke WhatsApp) atau menghubungi saya via Email.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>dapot.hamonangan.ds@gmail.com</p>
+                            <a href="mailto:dapot.hamonangan.ds@gmail.com" class="text-accent hover-glow">Kirim Pesan &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="contact-details">
+                            <h4>WhatsApp</h4>
+                            <p>+62 813-7520-0897</p>
+                            <a href="https://wa.me/6281375200897" target="_blank" class="text-accent hover-glow">Chat Sekarang &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="wa-form" onsubmit="sendToWhatsApp(event)">
+                        <input type="text" id="sender-name" placeholder="Nama Anda" required>
+                        <textarea id="sender-message" placeholder="Tulis pesan atau tawaran kerja Anda di sini..." required></textarea>
+                        <button type="submit" class="btn btn-primary form-submit-btn">Kirim Pesan via WhatsApp <i class="fas fa-paper-plane" style="margin-left: 5px;"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Dapot Hamonangan Yosepine Sidabutar. </i></p>
+    </footer>
+
+    <!-- Modal / Popup Saroha Catering -->
+    <div id="saroha-modal" class="modal">
+        <div class="modal-content card">
+            <span class="close-modal" onclick="closeModal('saroha-modal')">&times;</span>
+            
+            <div class="modal-header">
+                <h2>🍽️ Dokumentasi Sistem Saroha Catering</h2>
+                <p>Sistem informasi terpadu untuk manajemen pemesanan paket katering dan penyewaan peralatan pesta (B2C & B2B). Sistem ini dirancang menggunakan arsitektur native PHP berkonsep MVC (Model-View-Controller) dengan PDO (PHP Data Objects) untuk interaksi database yang aman dan efisien.</p>
+            </div>
+
+            <!-- Galeri Screenshot -->
+            <div class="modal-gallery">
+                <!-- Gambar Utama -->
+                <div class="main-image-container">
+                    <img id="main-img" src="https://lh3.googleusercontent.com/d/17hNPPRmvNoVy_lhrnoXyTNvAG26BA7Fi" alt="Screenshot Utama">
+                </div>
+                <!-- Thumbnail -->
+                <div class="thumbnail-grid">
+                    <img src="https://lh3.googleusercontent.com/d/17hNPPRmvNoVy_lhrnoXyTNvAG26BA7Fi" alt="Thumb 1" class="thumb active" onclick="changeImage(this.src, this)">
+                    <img src="https://lh3.googleusercontent.com/d/1cC7SEJ5kH8uvAXjFFtYyTTfMz4CWHI4s" alt="Thumb 2" class="thumb" onclick="changeImage(this.src, this)">
+                    <img src="https://lh3.googleusercontent.com/d/11o296DOnuPHQXOeE7Nb-4uBQ4Rn2pREQ" alt="Thumb 3" class="thumb" onclick="changeImage(this.src, this)">
+                </div>
+            </div>
+
+            <!-- Deskripsi Detail -->
+            <div class="modal-description">
+                <h3>🚀 Fitur Utama</h3>
+                <div class="desc-grid">
+                    <div>
+                        <h4>1. Sistem Pemesanan (Customer / B2C)</h4>
+                        <ul>
+                            <li><strong>Katalog Produk:</strong> Pelanggan dapat melihat paket katering dan peralatan yang tersedia.</li>
+                            <li><strong>Keranjang & Checkout Pintar:</strong> Hitung ongkos kirim otomatis berdasarkan berat (<code>weight_kg</code>), volume (<code>volume_m3</code>), jarak (<code>distance_km</code>), dan estimasi jumlah perjalanan (Trip) armada.</li>
+                            <li><strong>Manajemen Promo:</strong> Dukungan kode promo (minimum belanja, masa berlaku, kuota, persentase/fix).</li>
+                            <li><strong>Integrasi Pembayaran:</strong> <em>Seamless</em> dengan <strong>Midtrans</strong> (Snap API & Webhook) untuk e-Wallet, VA, QRIS, dll. Serta opsi Tunai.</li>
+                            <li><strong>Guest Order Tracking:</strong> Lacak status pesanan menggunakan Kode Pesanan & WhatsApp.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>2. Manajemen Operasional (Staff Backend)</h4>
+                        <ul>
+                            <li><strong>Dashboard Staff:</strong> Statistik ketersediaan aset & kalender jadwal (<em>FullCalendar</em>).</li>
+                            <li><strong>Quick Order Form (POS):</strong> Form cepat untuk pesanan tatap muka/telepon.</li>
+                            <li><strong>Manajemen Logistik:</strong> Pendaftaran <em>real trips</em>, plat kendaraan, dan konfirmasi <em>delivery fee</em>.</li>
+                            <li><strong>Notifikasi Terpadu:</strong> Email & WhatsApp otomatis ke Customer, Staff Logistik, dan Dapur.</li>
+                            <li><strong>Cek Ketersediaan:</strong> Validasi <em>Overlap</em> anti <em>Double Booking</em>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>3. Manajemen Eksekutif (Owner Backend)</h4>
+                <ul>
+                    <li><strong>Dashboard Keuangan:</strong> Statistik pendapatan & paket terlaris bulanan.</li>
+                    <li><strong>Laporan & Recycle Bin:</strong> Export `.CSV` dan fitur <em>Soft Deletion</em> untuk pesanan batal.</li>
+                    <li><strong>Manajemen Hak Akses:</strong> Akses berbasis <em>Permissions</em> (finance, fleet, kitchen).</li>
+                    <li><strong>Pengaturan Web:</strong> Pajak PPN, Midtrans Server Key, template WA, URL gambar default.</li>
+                </ul>
+
+                <h3>🛡️ Standar Keamanan Sistem</h3>
+                <ol>
+                    <li><strong>Anti-SQL Injection:</strong> Menggunakan <em>Prepared Statements</em> (PDO).</li>
+                    <li><strong>Anti-CSRF:</strong> Validasi token CSRF (di-generate per session) untuk aksi penting.</li>
+                    <li><strong>Validasi Webhook Lapis Baja:</strong> Memvalidasi <em>Signature Key</em> (SHA512) dari notifikasi Midtrans.</li>
+                    <li><strong>Proteksi Upload:</strong> Filter ekstensi (<code>mime_content_type</code>) & <em>randomized renaming</em> anti Web Shell.</li>
+                    <li><strong>RBAC Middleware:</strong> Pemisahan endpoint logis antara Customer, Staff, dan Owner.</li>
+                </ol>
+
+                <h3>📂 Struktur Direktori Utama</h3>
+                <pre class="code-block"><code>saroha_catering/
+├── api/                 # Endpoint REST/JSON API (Kalender, Webhook Midtrans)
+├── config/              # Konfigurasi Database (Koneksi PDO) & Konstanta
+├── controllers/         # Logika Utama Sistem
+├── helpers/             # Fungsi bantu seperti UploadHelper
+├── middleware/          # Pemeriksaan Role dan Hak Akses (AuthMiddleware)
+├── models/              # Representasi tabel database & Model data
+├── public/              # Aset publik, File Gambar, CSS, JS
+├── services/            # Logika Bisnis Kompleks, Notifikasi WA, Email
+└── views/               # Tampilan UI HTML/PHP
+    ├── customer/        # UI Publik B2C
+    ├── owner/           # UI Admin Dashboard Owner
+    └── staff/           # UI Operasional Pesanan Staff</code></pre>
+
+                <h3>🔗 Modul Pihak Ketiga & Integrasi</h3>
+                <ul>
+                    <li><strong>Midtrans Payment Gateway:</strong> Snap API & Webhook server-to-server.</li>
+                    <li><strong>Layanan WhatsApp (NotificationService):</strong> Notifikasi tagihan & perintah tim.</li>
+                    <li><strong>Email Service (SMTP):</strong> Template dinamis list barang sewa dan paket.</li>
+                    <li><strong>FullCalendar (JS):</strong> Visualisasi pesanan dalam kalender yang bersih.</li>
+                </ul>
+
+                <h3>⚙️ Skema Database & Optimasi Indeks</h3>
+                <p>Menggunakan indeks khusus (seperti <code>idx_reservation_overlap</code>) untuk mempercepat query hingga 50x lebih cepat. Relasi Entitas:</p>
+                <ul class="inline-list">
+                    <li><code>users</code></li>
+                    <li><code>orders</code> &rarr; <code>order_items</code></li>
+                    <li><code>equipment</code> &rarr; <code>equipment_reservations</code></li>
+                    <li><code>promo_codes</code></li>
+                    <li><code>logistics_tariffs</code></li>
+                </ul>
+
+                <h3>💡 Flow Pemesanan Online</h3>
+                <ol>
+                    <li>Customer memilih alat/paket dari katalog, mengisi detail <em>checkout</em>, ongkir & promo dihitung.</li>
+                    <li>Sistem men-generate No. Order, memvalidasi kalender, dan mengunci transaksi (<em>pending</em>).</li>
+                    <li>Customer membayar via Midtrans. Server memvalidasi Webhook dan status menjadi <em>confirmed</em>.</li>
+                    <li>Sistem mengirim WA resi dan notifikasi ke Staf. Staff mengalokasikan armada sebelum diantar.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal / Popup Afya Hermina -->
+    <div id="afya-modal" class="modal">
+        <div class="modal-content card">
+            <span class="close-modal" onclick="closeModal('afya-modal')">&times;</span>
+            
+            <div class="modal-header">
+                <h2>🏥 Pengembangan Sistem Afya Hermina</h2>
+                <p>Sistem informasi manajemen rumah sakit (Smart RCM System) dengan fokus pada optimalisasi siklus pendapatan Departemen Keuangan. Dirancang untuk mencegah kebocoran pendapatan (<em>Revenue Leakage</em>) dan percepatan arus kas melalui validasi cerdas dan otomatisasi.</p>
+            </div>
+
+            <!-- Galeri Screenshot Afya -->
+            <div class="modal-gallery">
+                <div class="main-image-container">
+                    <img id="afya-main-img" src="https://lh3.googleusercontent.com/d/1QDGjTC0Lwmv0XPTLTyLcsdBy0dytgDXv" alt="Screenshot Utama Afya">
+                </div>
+                <div class="thumbnail-grid">
+                    <img src="https://lh3.googleusercontent.com/d/1QDGjTC0Lwmv0XPTLTyLcsdBy0dytgDXv" alt="Thumb 1 Afya" class="thumb active" onclick="changeImage(this.src, this, 'afya-main-img')">
+                    <img src="https://lh3.googleusercontent.com/d/1w1i6zOheX9oxjyrfoQpWSbZ8x5mpa1dI" alt="Thumb 2 Afya" class="thumb" onclick="changeImage(this.src, this, 'afya-main-img')">
+                    <img src="https://lh3.googleusercontent.com/d/1a991MQyRYO76n2-mX0Wzu80GzB11e3S4" alt="Thumb 3 Afya" class="thumb" onclick="changeImage(this.src, this, 'afya-main-img')">
+                    <img src="https://lh3.googleusercontent.com/d/1GYDYKFL3gz5BMLnc8iQFNIdUNjk3a17t" alt="Thumb 4 Afya" class="thumb" onclick="changeImage(this.src, this, 'afya-main-img')">
+                </div>
+            </div>
+
+            <!-- Deskripsi Detail Afya -->
+            <div class="modal-description">
+                <h3>🚀 Fitur Unggulan untuk Keuangan & RCM</h3>
+                <div class="desc-grid">
+                    <div>
+                        <h4>1. Sistem Smart Gatekeeping</h4>
+                        <p>Mencegah klaim asuransi ditolak (Return to Provider) karena berkas tidak lengkap.</p>
+                        <ul>
+                            <li><strong>File Lock Mechanism:</strong> Otomatis mengunci gerbang Kasir jika berkas Lab/Radiologi belum diunggah oleh Unit Medis.</li>
+                            <li><strong>Dampak:</strong> Memastikan 100% <em>Clean Claim</em> sebelum data masuk ke Departemen Keuangan.</li>
+                        </ul>
+
+                        <h4>2. Billing Lock & Auto-Split Tagihan</h4>
+                        <ul>
+                            <li><strong>Real-time Limit Detection:</strong> Memblokir pencetakan kwitansi jika tagihan medis melampaui plafon asuransi.</li>
+                            <li><strong>Auto-Split Logic:</strong> Memisahkan otomatis tagihan asuransi dan selisih (<em>excess</em>) yang ditagihkan tunai ke pasien.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>3. Dashboard Pemantauan Piutang (Aging AR)</h4>
+                        <ul>
+                            <li><strong>Kategorisasi Umur:</strong> Hijau (0-30 Hari), Kuning (31-60 Hari), Merah (&gt;60 Hari Kritis).</li>
+                            <li><strong>Visualisasi Data:</strong> Integrasi <em>ChartJS</em> distribusi status klaim & Top 5 Asuransi penunggak terbesar.</li>
+                        </ul>
+
+                        <h4>4. Smart Import CSV & Automasi Data</h4>
+                        <ul>
+                            <li><strong>Fuzzy Logic Matching:</strong> Mencocokkan nama asuransi dari file CSV Excel meski terdapat <em>typo</em>.</li>
+                        </ul>
+                        
+                        <h4>5. Otomatisasi Reminder Penagihan</h4>
+                        <ul>
+                            <li><strong>Template Dinamis:</strong> Pesan WA/Email dinamis dengan variabel <code>{full_name}</code>, <code>{nominal}</code>.</li>
+                            <li>Penjadwalan <em>follow-up</em> berkala setiap 14 hari pasca-klaim.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>💡 Alur Keuangan yang Disempurnakan (Workflow)</h3>
+                <ol>
+                    <li><strong>Pendaftaran (Unit A):</strong> Pengecekan limit asuransi divalidasi sejak awal masuk.</li>
+                    <li><strong>Medis (Unit B):</strong> Input tindakan medis otomatis terkonversi rupiah tanpa intervensi kasir.</li>
+                    <li><strong>Kasir (Unit C):</strong> Melewati <em>Gatekeeping</em> (cek berkas & limit plafon). Menghasilkan tagihan <strong>Clean Claim</strong>.</li>
+                    <li><strong>Keuangan (Unit E):</strong> Menerima data piutang bersih, mengeksekusi tagihan asuransi, memantau umur piutang, dan menetapkan pelunasan.</li>
+                </ol>
+
+                <h3>🛠️ Arsitektur Teknis & Struktur Database</h3>
+                <ul class="inline-list">
+                    <li>Native PHP OOP</li>
+                    <li>Vanilla JS</li>
+                    <li>Tailwind CSS</li>
+                    <li>MariaDB</li>
+                    <li>Chart.js</li>
+                    <li>Service Workers (PWA)</li>
+                </ul>
+                <p style="margin-top: 10px; color: var(--text-secondary);"><strong>Desain Relasional Model:</strong></p>
+                <ul>
+                    <li><code>transactions</code> & <code>transaction_details</code> (Pencatatan siklus medis dan nominal subtotal)</li>
+                    <li><code>transaction_attachments</code> (Path berkas medis sebagai syarat buka <em>File Lock</em>)</li>
+                    <li><code>claims</code> (Sentral RCM pelacak status pembayaran piutang bersih)</li>
+                    <li><code>claim_reminders</code> & <code>message_templates</code> (Automasi penagihan)</li>
+                </ul>
+
+                <h3>🎯 Ringkasan Nilai Bisnis</h3>
+                <p>Sistem <strong>Afya Hermina</strong> bertindak sebagai <strong>"Penjaga Gerbang Keuangan"</strong>. Secara cerdas mendikte kedisiplinan pergerakan administrasi, sehingga Departemen Keuangan hanya menerima data yang sudah terkurasi, valid, dan memiliki peluang sukses pencairan klaim asuransi mendekati 100%.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal / Popup Desain Kartu Nama -->
+    <div id="design-modal" class="modal">
+        <div class="modal-content card">
+            <span class="close-modal" onclick="closeModal('design-modal')">&times;</span>
+            
+            <div class="modal-header">
+                <h2>🎨 Desain Kartu Nama (Saroha Jaya & Liza Catering)</h2>
+                <p>Proyek ini berfokus pada desain visual kartu nama untuk dua merek katering, yaitu Saroha Jaya Catering dan Liza Catering. Menggunakan Adobe Photoshop, saya menerapkan prinsip-prinsip desain grafis untuk menciptakan kartu nama yang profesional, menarik, dan selaras dengan identitas merek masing-masing.</p>
+            </div>
+
+            <!-- Galeri Screenshot Desain -->
+            <div class="modal-gallery">
+                <div class="main-image-container">
+                    <img id="design-main-img" src="https://lh3.googleusercontent.com/d/12t_H9oSD3CQI58XLDjTKEr3imVyZOJkD" alt="Screenshot Utama Desain">
+                </div>
+                <div class="thumbnail-grid">
+                    <!-- Gambar untuk Liza Catering -->
+                    <img src="https://lh3.googleusercontent.com/d/12t_H9oSD3CQI58XLDjTKEr3imVyZOJkD" alt="Liza Catering 1" class="thumb active" onclick="changeImage(this.src, this, 'design-main-img')">
+                    <img src="https://lh3.googleusercontent.com/d/12udFAs6l1TTmY9QzTqloipCH-5KEQIqR" alt="Liza Catering 2" class="thumb" onclick="changeImage(this.src, this, 'design-main-img')">
+                    <!-- Gambar untuk Saroha Jaya Catering -->
+                    <img src="https://lh3.googleusercontent.com/d/1h9GapwCybB_oW7zgjXdtArvAI016-pEY" alt="Saroha Jaya 1" class="thumb" onclick="changeImage(this.src, this, 'design-main-img')">
+                    <img src="https://lh3.googleusercontent.com/d/1wRfiw4p2vpgIIiQG2hWNMlbmojfHAUbZ" alt="Saroha Jaya 2" class="thumb" onclick="changeImage(this.src, this, 'design-main-img')">
+                </div>
+            </div>
+
+            <!-- Deskripsi Detail Desain -->
+            <div class="modal-description">
+                <h3>✨ Tujuan Proyek</h3>
+                <p>Menciptakan kartu nama yang tidak hanya informatif tetapi juga estetis dan mampu merepresentasikan citra profesional kedua merek katering. Desain ini bertujuan untuk meninggalkan kesan positif dan mudah diingat oleh calon pelanggan.</p>
+
+                <h3>🎨 Pendekatan Desain</h3>
+                <div class="desc-grid">
+                    <div>
+                        <h4>Liza Catering</h4>
+                        <ul>
+                            <li>**Palet Warna:** Menyesuaikan dengan logo dan nuansa merek yang sudah ada, biasanya melibatkan warna-warna hangat dan elegan.</li>
+                            <li>**Tipografi:** Pemilihan font yang mudah dibaca namun tetap memberikan kesan premium dan ramah.</li>
+                            <li>**Tata Letak:** Mengoptimalkan ruang untuk informasi kontak esensial seperti nama, jabatan, nomor telepon, email, dan alamat website/media sosial.</li>
+                            <li>**Elemen Visual:** Penambahan elemen grafis minimalis yang relevan dengan bisnis katering, seperti ikon sendok/garpu atau pola yang lembut.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Saroha Jaya Catering</h4>
+                        <ul>
+                            <li>**Palet Warna:** Menerapkan warna-warna yang energik dan cerah untuk mencerminkan semangat dan keunikan masakan.</li>
+                            <li>**Tipografi:** Memilih jenis huruf yang modern, bersih, dan mudah dikenali, namun tetap memiliki karakter yang kuat.</li>
+                            <li>**Tata Letak:** Desain yang ringkas dan fokus pada informasi kunci, memastikan kemudahan aksesibilitas.</li>
+                            <li>**Elemen Visual:** Integrasi elemen visual yang khas dari budaya atau tradisi yang diusung oleh Saroha Jaya Catering, jika ada, untuk menciptakan identitas yang kuat.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>🛠️ Teknologi yang Digunakan</h3>
+                <ul class="inline-list">
+                    <li>Adobe Photoshop</li>
+                    <li>Prinsip Desain Grafis</li>
+                    <li>Tipografi</li>
+                    <li>Color Theory</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal / Popup Freeport Internship -->
+    <div id="freeport-modal" class="modal">
+        <div class="modal-content card">
+            <span class="close-modal" onclick="closeModal('freeport-modal')">&times;</span>
+            
+            <div class="modal-header">
+                <h2>⛏️ Internship di PT Freeport Indonesia</h2>
+                <p><strong>GBC Construction & Production, Mine Underground (4 Bulan)</strong><br>
+                Pengalaman kerja praktik di lingkungan industri ekstrem, menjembatani teori akademis Manajemen Sistem Informasi dengan praktik nyata implementasi infrastruktur IT di tambang bawah tanah.</p>
+            </div>
+
+            <!-- Galeri Validasi Freeport -->
+            <div class="modal-gallery">
+                <div class="main-image-container">
+                    <img id="freeport-main-img" src="https://lh3.googleusercontent.com/d/1D_dOe8t1FOdoerojPoEDcYQFzuB1OgLx" alt="Validasi Freeport 1">
+                </div>
+                <div class="thumbnail-grid">
+                    <img src="https://lh3.googleusercontent.com/d/1D_dOe8t1FOdoerojPoEDcYQFzuB1OgLx" alt="Thumb Freeport 1" class="thumb active" onclick="changeImage(this.src, this, 'freeport-main-img')">
+                    <img src="https://lh3.googleusercontent.com/d/1dzP8LLQ-CqYPsLhv4e7Y8wQCbtAPBgr2" alt="Thumb Freeport 2" class="thumb" onclick="changeImage(this.src, this, 'freeport-main-img')">
+                    <img src="https://lh3.googleusercontent.com/d/1ctZXR4hLg7FDutY3nwf_u75hg2OK1lNR" alt="Thumb Freeport 3" class="thumb" onclick="changeImage(this.src, this, 'freeport-main-img')">
+                </div>
+            </div>
+
+            <!-- Deskripsi Detail Pengalaman Magang -->
+            <div class="modal-description">
+                <h3>🌐 Implementasi Jaringan Komputer & IT Infrastruktur</h3>
+                <p>Selama menjalani magang di area <em>Underground Mine</em>, saya mendapatkan eksposur langsung terhadap infrastruktur IT berskala industri besar. Beberapa penerapan keilmuan IT yang saya lakukan meliputi:</p>
+                <ul>
+                    <li><strong>Konfigurasi & Topologi Jaringan Area Tambang:</strong> Terlibat langsung dalam observasi dan proses konfigurasi perangkat jaringan (seperti <em>Access Points</em> dan <em>Switches</em> industri). Saya berkesempatan melihat bagaimana topologi jaringan bawah tanah dirancang menggunakan <em>Fiber Optic</em> dan teknologi nirkabel khusus agar komunikasi antar pekerja dan mesin berat tetap terjalin tanpa *delay*.</li>
+                    <li><strong>Troubleshooting Lingkungan Ekstrem:</strong> Berbeda dengan lingkungan kantor, perangkat jaringan di tambang rentan terhadap debu, kelembapan, dan getaran. Saya mempelajari cara tim IT (*OT Network*) merawat, mengisolasi masalah (<em>troubleshooting</em>) koneksi jaringan, dan melakukan mitigasi perangkat keras secara <em>real-time</em>.</li>
+                    <li><strong>Dukungan Sistem Operasional (GBC Construction & Production):</strong> Mendukung kelancaran sistem informasi yang digunakan oleh tim produksi. Memastikan bahwa data dari lapangan dapat dikirim ke sistem sentral tanpa kendala *network* untuk kebutuhan pelaporan (*reporting*) dan keselamatan kerja.</li>
+                </ul>
+
+                <h3>📄 Dokumen Presentasi Akhir (Final Presentation)</h3>
+                <p>Sebagai puncak kegiatan magang, saya mempresentasikan pencapaian, analisis sistem, dan proyek akhir di hadapan pembimbing dan manajemen. Anda dapat melihat detail kontribusi saya pada presentasi akhir di bawah ini:</p>
+                
+                <div style="margin-top: 15px; margin-bottom: 25px;">
+                    <a href="https://docs.google.com/presentation/d/1Upz5y8YmNRHKFWHUmB4pPpJ0wmWq722W/edit?usp=sharing&ouid=113618676800531329378&rtpof=true&sd=true" target="_blank" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-file-powerpoint" style="color: #F24E1E;"></i> Lihat Presentasi Final (PPT)
+                    </a>
+                </div>
+
+                <h3>🎯 Nilai Tambah Profesional</h3>
+                <p>Pengalaman ini melatih kedisiplinan tingkat tinggi, kepatuhan terhadap standar Keselamatan dan Kesehatan Kerja (K3 / <em>Safety First</em>), serta kemampuan komunikasi teknis lintas departemen. Membuktikan bahwa saya mampu beradaptasi, bekerja dalam tekanan, serta menjembatani pemahaman teknologi informasi dengan proses rekayasa fisik (<em>engineering</em>).</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal / Popup Avatar Fullscreen -->
+    <div id="avatar-modal" class="modal">
+        <span class="close-modal" onclick="closeModal('avatar-modal')">&times;</span>
+        <div style="display: flex; justify-content: center; align-items: center; height: 100%; padding: 20px;">
+            <img src="https://lh3.googleusercontent.com/d/16DsNOC-1f-3atP-_9qr1f50lhsE0d58f" alt="Foto Pino Sidabutar Full" style="max-width: 100%; max-height: 90vh; border-radius: 15px; border: 2px solid var(--accent-color); box-shadow: 0 0 30px rgba(0, 240, 255, 0.4); animation: slideDown 0.4s ease-out;">
+        </div>
+    </div>
+
+    <!-- Modal / Popup Sertifikat Gambar -->
+    <div id="cert-image-modal" class="modal">
+        <span class="close-modal" onclick="closeModal('cert-image-modal')">&times;</span>
+        <div style="display: flex; justify-content: center; align-items: center; height: 100%; padding: 20px;">
+            <img id="cert-full-img" src="" alt="Sertifikat Full" style="max-width: 100%; max-height: 90vh; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); animation: slideDown 0.4s ease-out;">
+        </div>
+    </div>
+
+    <!-- Modal / Popup LinkedIn Info -->
+    <div id="cert-linkedin-modal" class="modal">
+        <div class="modal-content card" style="text-align: center; max-width: 500px;">
+            <span class="close-modal" onclick="closeModal('cert-linkedin-modal')">&times;</span>
+            <i class="fab fa-linkedin" style="font-size: 4rem; color: #0A66C2; margin-bottom: 1rem;"></i>
+            <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: var(--text-primary);">Informasi Sertifikasi</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Sertifikat dan detail lengkap untuk pelatihan ini tersedia di profil LinkedIn profesional saya.</p>
+            <a href="https://www.linkedin.com/in/dapothys/" target="_blank" class="btn btn-primary" style="display: inline-block;">Kunjungi LinkedIn Saya</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
