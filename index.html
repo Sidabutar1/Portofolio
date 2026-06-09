@@ -23,10 +23,19 @@
     <!-- Navigasi Utama -->
     <nav>
         <div class="logo">PINO<span class="text-accent">_SIDABUTAR</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <!-- Indikator Scroll Bar -->
+        <div class="scroll-progress-bar" id="scrollBar"></div>
     </nav>
 
     <!-- Bagian Hero/Header -->
-    <header class="hero">
+    <header id="home" class="hero">
         <!-- Efek Glow Latar Belakang -->
         <div class="glow-blob glow-blob-1"></div>
         <div class="glow-blob glow-blob-2"></div>
@@ -91,6 +100,12 @@
                     <img src="https://lh3.googleusercontent.com/d/17hNPPRmvNoVy_lhrnoXyTNvAG26BA7Fi" alt="Saroha Catering Thumbnail">
                     <div class="portfolio-content">
                         <h4>Saroha Catering System</h4>
+                        <div class="tech-stack">
+                            <span class="live-badge" title="Sistem ini dapat diakses secara langsung"><span class="pulse-dot-small"></span> Live via Ngrok</span>
+                            <span class="tech-badge">PHP Native MVC</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">Midtrans API</span>
+                        </div>
                         <p>Sistem informasi B2B & B2C MVC Native PHP terpadu dengan integrasi Midtrans, manajemen operasional logistik, dan kalender reservasi.</p>
                         <span class="btn-link text-accent" style="display:inline-block; margin-top: 10px; font-size: 0.9em; font-family: var(--font-mono);"><i class="fas fa-external-link-alt"></i> Lihat Detail</span>
                     </div>
@@ -100,6 +115,13 @@
                     <img src="https://lh3.googleusercontent.com/d/1QDGjTC0Lwmv0XPTLTyLcsdBy0dytgDXv" alt="Afya Hermina Thumbnail">
                     <div class="portfolio-content">
                         <h4>Afya Hermina (Smart RCM)</h4>
+                        <div class="tech-stack">
+                            <span class="live-badge" title="Sistem ini dapat diakses secara langsung"><span class="pulse-dot-small"></span> Live via Ngrok</span>
+                            <span class="tech-badge">PHP OOP</span>
+                            <span class="tech-badge">Vanilla JS</span>
+                            <span class="tech-badge">Tailwind CSS</span>
+                            <span class="tech-badge">MariaDB</span>
+                        </div>
                         <p>Sistem manajemen rumah sakit berfokus pada optimalisasi Revenue Cycle Management, gatekeeping piutang, dan pencegahan kebocoran pendapatan.</p>
                         <span class="btn-link text-accent" style="display:inline-block; margin-top: 10px; font-size: 0.9em; font-family: var(--font-mono);"><i class="fas fa-external-link-alt"></i> Lihat Detail</span>
                     </div>
@@ -109,6 +131,10 @@
                     <img src="https://lh3.googleusercontent.com/d/12t_H9oSD3CQI58XLDjTKEr3imVyZOJkD" alt="Kartu Nama Thumbnail">
                     <div class="portfolio-content">
                         <h4>Desain Kartu Nama (Saroha Jaya & Liza Catering)</h4>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Adobe Photoshop</span>
+                            <span class="tech-badge">Graphic Design</span>
+                        </div>
                         <p>Desain visual kartu nama profesional menggunakan Adobe Photoshop untuk dua merek katering, menonjolkan identitas merek yang unik.</p>
                         <span class="btn-link text-accent" style="display:inline-block; margin-top: 10px; font-size: 0.9em; font-family: var(--font-mono);"><i class="fas fa-external-link-alt"></i> Lihat Detail</span>
                     </div>
@@ -199,6 +225,12 @@
 
             <!-- Deskripsi Detail -->
             <div class="modal-description">
+                <div style="margin-bottom: 25px;">
+                    <button onclick="openNgrokLink('https://nearest-remindful-refill.ngrok-free.dev/saroha_catering/')" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-external-link-alt"></i> Kunjungi Live System
+                    </button>
+                </div>
+
                 <h3>🚀 Fitur Utama</h3>
                 <div class="desc-grid">
                     <div>
@@ -309,6 +341,12 @@
 
             <!-- Deskripsi Detail Afya -->
             <div class="modal-description">
+                <div style="margin-bottom: 25px;">
+                    <button onclick="openNgrokLink('https://leota-dentate-pseudostudiously.ngrok-free/core_app')" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-external-link-alt"></i> Kunjungi Live System
+                    </button>
+                </div>
+
                 <h3>🚀 Fitur Unggulan untuk Keuangan & RCM</h3>
                 <div class="desc-grid">
                     <div>
@@ -446,7 +484,7 @@
             
             <div class="modal-header">
                 <h2>⛏️ Internship di PT Freeport Indonesia</h2>
-                <p><strong>GBC Construction & Production, Mine Underground (4 Bulan)</strong><br>
+                <p><strong>GBC Construction & Production, Mine Underground (3 Bulan)</strong><br>
                 Pengalaman kerja praktik di lingkungan industri ekstrem, menjembatani teori akademis Manajemen Sistem Informasi dengan praktik nyata implementasi infrastruktur IT di tambang bawah tanah.</p>
             </div>
 
@@ -464,13 +502,40 @@
 
             <!-- Deskripsi Detail Pengalaman Magang -->
             <div class="modal-description">
-                <h3>🌐 Implementasi Jaringan Komputer & IT Infrastruktur</h3>
-                <p>Selama menjalani magang di area <em>Underground Mine</em>, saya mendapatkan eksposur langsung terhadap infrastruktur IT berskala industri besar. Beberapa penerapan keilmuan IT yang saya lakukan meliputi:</p>
-                <ul>
-                    <li><strong>Konfigurasi & Topologi Jaringan Area Tambang:</strong> Terlibat langsung dalam observasi dan proses konfigurasi perangkat jaringan (seperti <em>Access Points</em> dan <em>Switches</em> industri). Saya berkesempatan melihat bagaimana topologi jaringan bawah tanah dirancang menggunakan <em>Fiber Optic</em> dan teknologi nirkabel khusus agar komunikasi antar pekerja dan mesin berat tetap terjalin tanpa *delay*.</li>
-                    <li><strong>Troubleshooting Lingkungan Ekstrem:</strong> Berbeda dengan lingkungan kantor, perangkat jaringan di tambang rentan terhadap debu, kelembapan, dan getaran. Saya mempelajari cara tim IT (*OT Network*) merawat, mengisolasi masalah (<em>troubleshooting</em>) koneksi jaringan, dan melakukan mitigasi perangkat keras secara <em>real-time</em>.</li>
-                    <li><strong>Dukungan Sistem Operasional (GBC Construction & Production):</strong> Mendukung kelancaran sistem informasi yang digunakan oleh tim produksi. Memastikan bahwa data dari lapangan dapat dikirim ke sistem sentral tanpa kendala *network* untuk kebutuhan pelaporan (*reporting*) dan keselamatan kerja.</li>
-                </ul>
+                <h3>🌐 Implementasi & Kontribusi IT di Industri Tambang</h3>
+                <p>Selama menjalani magang di area <em>Underground Mine</em>, saya mendapatkan eksposur langsung terhadap infrastruktur IT berskala industri besar. Berikut adalah ruang lingkup kontribusi dan pembelajaran saya:</p>
+                
+                <div class="desc-grid">
+                    <div>
+                        <h4>1. Aspek Teknis & Monitoring</h4>
+                        <ul>
+                            <li><strong>Monitoring Infrastruktur:</strong> Mengawasi stabilitas infrastruktur jaringan terintegrasi secara <em>real-time</em> melalui sistem <em>Caterpillar MineStar</em> dan inspeksi fisik pada panel kontrol guna memastikan konektivitas operasi tambang tetap optimal.</li>
+                            <li><strong>Manajemen Server:</strong> Berkontribusi dalam proses konfigurasi dan pemeliharaan rutin pada sistem <em>Local Server</em> di Office Building (OB) 4 untuk kelancaran manajemen data aplikasi internal divisi.</li>
+                            <li><strong>Konfigurasi & Troubleshooting:</strong> Observasi dan konfigurasi perangkat (<em>Access Points</em> & <em>Switches</em> industri) serta mitigasi masalah jaringan (*OT Network*) di lingkungan ekstrem (debu, kelembapan, getaran).</li>
+                        </ul>
+
+                        <h4>2. Inovasi & Pengembangan Sistem</h4>
+                        <ul>
+                            <li><strong>Mitigasi Risiko Listrik:</strong> Merancang proposal teknis dan rekomendasi inovasi untuk implementasi sistem <em>Auto-Cut Current</em> pada perangkat kritikal sebagai langkah preventif terhadap kerusakan akibat lonjakan arus (<em>power surge</em>).</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>3. Pemahaman Bisnis (Mining Industry)</h4>
+                        <ul>
+                            <li><strong>Analisis Operasional:</strong> Mempelajari siklus menyeluruh proses bisnis pertambangan (<em>End-to-End Mining Cycle</em>) untuk memahami integrasi teknologi dalam operasional tambang skala besar.</li>
+                        </ul>
+
+                        <h4>4. Pengembangan Profesional & Sertifikasi</h4>
+                        <ul>
+                            <li><strong>Kepatuhan Operasional:</strong> Menyelesaikan program pengembangan kompetensi dan pelatihan sertifikasi internal terkait standar keselamatan kerja (K3) serta kepatuhan prosedur di PT Freeport Indonesia.</li>
+                        </ul>
+
+                        <h4>5. Organisasi & Hubungan Masyarakat</h4>
+                        <ul>
+                            <li><strong>Manajemen Acara (K3):</strong> Berperan aktif dalam kepanitiaan agenda Bulan K3 Nasional (BK3N) di Tembagapura, bersinergi dengan manajemen dalam mengampanyekan budaya Keselamatan dan Kesehatan Kerja.</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <h3>📄 Dokumen Presentasi Akhir (Final Presentation)</h3>
                 <p>Sebagai puncak kegiatan magang, saya mempresentasikan pencapaian, analisis sistem, dan proyek akhir di hadapan pembimbing dan manajemen. Anda dapat melihat detail kontribusi saya pada presentasi akhir di bawah ini:</p>
@@ -511,6 +576,22 @@
             <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: var(--text-primary);">Informasi Sertifikasi</h2>
             <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Sertifikat dan detail lengkap untuk pelatihan ini tersedia di profil LinkedIn profesional saya.</p>
             <a href="https://www.linkedin.com/in/dapothys/" target="_blank" class="btn btn-primary" style="display: inline-block;">Kunjungi LinkedIn Saya</a>
+        </div>
+    </div>
+
+    <!-- Modal / Popup Konfirmasi Ngrok -->
+    <div id="ngrok-confirm-modal" class="modal">
+        <div class="modal-content card" style="text-align: center; max-width: 500px; margin-top: 15vh;">
+            <i class="fas fa-exclamation-triangle" style="font-size: 3.5rem; color: #F59E0B; margin-bottom: 1rem; text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);"></i>
+            <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: var(--text-primary);">Informasi Akses Sistem</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.6;">
+                Sistem ini berjalan menggunakan <strong class="text-accent">Ngrok</strong> sebagai <em>bridge</em>.<br><br>
+                Sistem hanya akan terbuka apabila komputer lokal (host) yang mengintegrasikan sistem ini sedang dalam keadaan <strong>ONLINE</strong>.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <button onclick="closeModal('ngrok-confirm-modal')" class="btn btn-outline">Batal</button>
+                <button onclick="proceedNgrokLink()" class="btn btn-primary">Ya, Lanjutkan <i class="fas fa-external-link-alt" style="margin-left: 5px;"></i></button>
+            </div>
         </div>
     </div>
 
