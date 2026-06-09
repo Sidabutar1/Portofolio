@@ -71,6 +71,15 @@ window.addEventListener('scroll', () => {
         blobs[0].style.transform = `translateY(${scrolled * 0.3}px)`; // Bergerak lambat ke bawah
         blobs[1].style.transform = `translateY(${scrolled * -0.2}px)`; // Bergerak perlahan ke atas
     }
+    
+    // Menggerakkan Indikator Scroll Progress Bar
+    const scrollBar = document.getElementById('scrollBar');
+    if (scrollBar) {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolledPercentage = (winScroll / height) * 100;
+        scrollBar.style.width = scrolledPercentage + "%";
+    }
 });
 
 /**
@@ -165,4 +174,26 @@ function sendToWhatsApp(event) {
     const waUrl = `https://wa.me/${phoneNumber}?text=${text}`;
     
     window.open(waUrl, '_blank');
+}
+
+// Variabel global untuk menyimpan URL sementara
+let pendingNgrokUrl = "";
+
+/**
+ * Fungsi untuk membuka modal peringatan Custom Ngrok
+ */
+function openNgrokLink(url) {
+    pendingNgrokUrl = url;
+    openModal('ngrok-confirm-modal');
+}
+
+/**
+ * Fungsi untuk memproses pembukaan link setelah dikonfirmasi via Modal
+ */
+function proceedNgrokLink() {
+    if (pendingNgrokUrl) {
+        window.open(pendingNgrokUrl, '_blank');
+        closeModal('ngrok-confirm-modal');
+        pendingNgrokUrl = ""; // Reset URL
+    }
 }
