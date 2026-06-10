@@ -9,8 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome untuk ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome untuk ikon (Disarankan menggunakan FontAwesome Kit untuk keandalan yang lebih baik) -->
+    <!-- Jika ikon masih tidak muncul, cek console browser untuk error loading (misalnya CORS atau network error) -->
+    <!-- Kunjungi https://fontawesome.com/kits untuk membuat Kit Anda, lalu ganti 'YOUR_KIT_CODE' dengan kode Kit Anda. -->
+    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+    <!-- Opsi alternatif jika ingin tetap menggunakan CDN (bisa coba versi terbaru atau CDN lain): -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.
     
     <!-- Favicon / Ikon Tab Browser -->
     <link rel="icon" href="https://lh3.googleusercontent.com/d/1UWJludC5R-71q4dz_C6QtCPUqQg43fhU" type="image/x-icon">
@@ -20,6 +24,10 @@
     <meta property="og:description" content="Sistem Informasi graduate & Full-Stack Developer. Bridging the gap between robust backend architecture and intuitive UI/UX design.">
 </head>
 <body>
+    <!-- Custom Cursor Cyber -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-follower" id="customCursorFollower"></div>
+
     <!-- Navigasi Utama -->
     <nav>
         <div class="logo">PINO<span class="text-accent">_SIDABUTAR</span></div>
@@ -49,7 +57,7 @@
             <div class="badge open-to-work">
                 <span class="pulse-dot"></span> Open to Work / Tech-Creative
             </div>
-            <h1>DAPOT H.Y. <span class="text-accent">SIDABUTAR</span></h1>
+            <h1 id="hero-name">DAPOT H.Y. <span class="text-accent">SIDABUTAR</span></h1>
             <p class="tagline">Sistem Informasi graduate & <strong>Full-Stack Developer</strong>. Bridging the gap between <span class="code-text">[robust backend architecture]</span> and intuitive <span class="highlight-text">UI/UX design</span> to deliver scalable digital solutions.</p>
             <div class="hero-actions">
                 <a href="#portfolio" class="btn btn-primary">View Projects</a>
@@ -63,7 +71,7 @@
         <!-- Tentang Saya -->
         <section id="about" class="card scroll-reveal">
             <h3><i class="fas fa-user"></i> Ringkasan Profil</h3>
-            <p>Merupakan lulusan baru (<em>recent graduate</em>) dari <strong>Universitas Komputer Indonesia</strong> dengan gelar Sarjana <strong>Manajemen Sistem Informasi</strong>. Saya memiliki perpaduan keahlian analitis di bidang arsitektur teknologi informasi (<em>IT Infrastructure & Network</em>) dan keterampilan kreatif dalam desain antarmuka pengguna (<strong>UI/UX</strong>) serta pengembangan web. Terbukti mampu beradaptasi di lingkungan kerja bertekanan tinggi dan ekstrem, dengan fokus pada pemberian solusi berorientasi pengguna (<em>user-focused</em>) dan optimalisasi proses bisnis. Saat ini mencari peluang karir penuh waktu untuk berkontribusi secara profesional.</p>
+            <p>Merupakan lulusan baru dari <strong>Universitas Komputer Indonesia</strong> dengan gelar Sarjana <strong>Manajemen Sistem Informasi</strong>. Saya memiliki perpaduan keahlian analitis di bidang arsitektur teknologi informasi (<em>IT Infrastructure & Network</em>) dan keterampilan kreatif dalam desain antarmuka pengguna (<strong>UI/UX</strong>) serta pengembangan web. Terbukti mampu beradaptasi di lingkungan kerja dengan dinamika tinggi serta area operasional yang menantang, dengan fokus pada pemberian solusi berorientasi pada pengguna dan optimalisasi proses bisnis. Saat ini mencari peluang karir penuh waktu untuk berkontribusi secara profesional.</p>
         </section>
 
         <!-- Keahlian -->
@@ -85,7 +93,10 @@
                 <div class="timeline-item clickable" onclick="openModal('freeport-modal')">
                     <h4>Internship (Magang)</h4>
                     <h5>Freeport Indonesia | GBC Construction & Production, Mine_Underground <span>(4 Bulan)</span></h5>
-                    <p>Mengaplikasikan ilmu Jaringan Komputer dan Sistem Informasi secara langsung pada infrastruktur tambang bawah tanah. Mendukung operasional tim melalui konfigurasi jaringan dan optimasi sistem pelaporan.</p>
+                    <ul style="margin-left: 1.2rem; margin-top: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.95rem;">
+                        <li style="margin-bottom: 0.3rem;">Mengonfigurasi dan memelihara infrastruktur jaringan komputer di area tambang bawah tanah (GBC Construction & Production) untuk memastikan kelancaran komunikasi operasional.</li>
+                        <li>Mengoptimalkan sistem pelaporan digital guna meningkatkan efisiensi dan akurasi data tim operasional.</li>
+                    </ul>
                     <span class="btn-link text-accent" style="display:inline-block; margin-top: 10px; font-size: 0.9em; font-family: var(--font-mono);"><i class="fas fa-external-link-alt"></i> Lihat Dokumentasi & Validasi Magang</span>
                 </div>
             </div>
@@ -94,9 +105,17 @@
         <!-- Portofolio -->
         <section id="portfolio" class="card scroll-reveal">
             <h3><i class="fas fa-folder-open"></i> Portofolio Proyek</h3>
+            
+            <!-- Filter Kategori -->
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">Semua Proyek</button>
+                <button class="filter-btn" data-filter="web">Web Dev</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+            </div>
+
             <div class="portfolio-grid">
                 <!-- Proyek 1 -->
-                <div class="portfolio-item" onclick="openModal('saroha-modal')">
+                <div class="portfolio-item scroll-reveal" data-category="web" style="transition-delay: 0.1s;" onclick="openModal('saroha-modal')">
                     <img src="https://lh3.googleusercontent.com/d/17hNPPRmvNoVy_lhrnoXyTNvAG26BA7Fi" alt="Saroha Catering Thumbnail">
                     <div class="portfolio-content">
                         <h4>Saroha Catering System</h4>
@@ -111,12 +130,11 @@
                     </div>
                 </div>
                 <!-- Proyek 2 -->
-                <div class="portfolio-item" onclick="openModal('afya-modal')">
+                <div class="portfolio-item scroll-reveal" data-category="web" style="transition-delay: 0.3s;" onclick="openModal('afya-modal')">
                     <img src="https://lh3.googleusercontent.com/d/1QDGjTC0Lwmv0XPTLTyLcsdBy0dytgDXv" alt="Afya Hermina Thumbnail">
                     <div class="portfolio-content">
                         <h4>Afya Hermina (Smart RCM)</h4>
                         <div class="tech-stack">
-                            <span class="live-badge" title="Sistem ini dapat diakses secara langsung"><span class="pulse-dot-small"></span> Live via Ngrok</span>
                             <span class="tech-badge">PHP OOP</span>
                             <span class="tech-badge">Vanilla JS</span>
                             <span class="tech-badge">Tailwind CSS</span>
@@ -127,7 +145,7 @@
                     </div>
                 </div>
                 <!-- Proyek 3 -->
-                <div class="portfolio-item" onclick="openModal('design-modal')">
+                <div class="portfolio-item scroll-reveal" data-category="design" style="transition-delay: 0.5s;" onclick="openModal('design-modal')">
                     <img src="https://lh3.googleusercontent.com/d/12t_H9oSD3CQI58XLDjTKEr3imVyZOJkD" alt="Kartu Nama Thumbnail">
                     <div class="portfolio-content">
                         <h4>Desain Kartu Nama (Saroha Jaya & Liza Catering)</h4>
@@ -342,7 +360,7 @@
             <!-- Deskripsi Detail Afya -->
             <div class="modal-description">
                 <div style="margin-bottom: 25px;">
-                    <button onclick="openNgrokLink('https://leota-dentate-pseudostudiously.ngrok-free/core_app')" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <button onclick="window.open('https://afyarcm.infinityfreeapp.com/', '_blank')" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
                         <i class="fas fa-external-link-alt"></i> Kunjungi Live System
                     </button>
                 </div>
@@ -556,7 +574,7 @@
     <div id="avatar-modal" class="modal">
         <span class="close-modal" onclick="closeModal('avatar-modal')">&times;</span>
         <div style="display: flex; justify-content: center; align-items: center; height: 100%; padding: 20px;">
-            <img src="https://lh3.googleusercontent.com/d/16DsNOC-1f-3atP-_9qr1f50lhsE0d58f" alt="Foto Pino Sidabutar Full" style="max-width: 100%; max-height: 90vh; border-radius: 15px; border: 2px solid var(--accent-color); box-shadow: 0 0 30px rgba(0, 240, 255, 0.4); animation: slideDown 0.4s ease-out;">
+            <img src="https://lh3.googleusercontent.com/d/16DsNOC-1f-3atP-_9qr1f50lhsE0d58f" alt="Foto Pino Sidabutar Full" style="max-width: 100%; max-height: 90vh; border-radius: 15px; border: 2px solid var(--accent-color); box-shadow: 0 0 30px rgba(0, 240, 255, 0.4); animation: zoomPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
         </div>
     </div>
 
@@ -564,7 +582,7 @@
     <div id="cert-image-modal" class="modal">
         <span class="close-modal" onclick="closeModal('cert-image-modal')">&times;</span>
         <div style="display: flex; justify-content: center; align-items: center; height: 100%; padding: 20px;">
-            <img id="cert-full-img" src="" alt="Sertifikat Full" style="max-width: 100%; max-height: 90vh; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); animation: slideDown 0.4s ease-out;">
+            <img id="cert-full-img" src="" alt="Sertifikat Full" style="max-width: 100%; max-height: 90vh; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); animation: zoomPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
         </div>
     </div>
 
@@ -594,6 +612,11 @@
             </div>
         </div>
     </div>
+
+    <!-- Tombol Scroll to Top -->
+    <button id="scrollTopBtn" class="scroll-top-btn" onclick="scrollToTop()" title="Kembali ke Atas">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>

@@ -1,9 +1,47 @@
 /**
+ * Sistem Sintesis Suara UI Cyber menggunakan Web Audio API
+ */
+let audioCtx;
+function playUISound(type = 'click') {
+    try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+
+        const osc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        const now = audioCtx.currentTime;
+        
+        if (type === 'click') {
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(800, now);
+            osc.frequency.exponentialRampToValueAtTime(1200, now + 0.05);
+            gainNode.gain.setValueAtTime(0.05, now); // Volume halus (5%)
+            gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+            osc.start(now); osc.stop(now + 0.05);
+        } else if (type === 'open' || type === 'close') {
+            osc.type = 'triangle';
+            const startFreq = type === 'open' ? 300 : 600;
+            const endFreq = type === 'open' ? 600 : 300;
+            osc.frequency.setValueAtTime(startFreq, now);
+            osc.frequency.exponentialRampToValueAtTime(endFreq, now + 0.1);
+            gainNode.gain.setValueAtTime(0.02, now); // Volume sangat halus (2%)
+            gainNode.gain.linearRampToValueAtTime(0, now + 0.1);
+            osc.start(now); osc.stop(now + 0.1);
+        }
+    } catch (e) { /* Abaikan jika browser tidak mendukung audio (Silent fail) */ }
+}
+
+/**
  * Fungsi untuk Membuka Modal
  */
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
+        playUISound('open');
         modal.style.display = "block";
         // Mencegah body di background bisa di-scroll saat modal terbuka
         document.body.style.overflow = "hidden"; 
@@ -16,6 +54,7 @@ function openModal(modalId) {
 function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
+        playUISound('close');
         modal.style.display = "none";
         document.body.style.overflow = "auto"; 
     }
@@ -35,6 +74,7 @@ function openCert(imgUrl) {
  */
 window.onclick = function(event) {
     if (event.target.classList.contains('modal')) {
+        playUISound('close');
         event.target.style.display = "none";
         document.body.style.overflow = "auto";
     }
@@ -80,6 +120,14 @@ window.addEventListener('scroll', () => {
         const scrolledPercentage = (winScroll / height) * 100;
         scrollBar.style.width = scrolledPercentage + "%";
     }
+    
+    // Menampilkan Tombol Scroll to Top jika sudah di-scroll ke bawah > 400px
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    if (scrolled > 400) {
+        scrollTopBtn.classList.add('show');
+    } else {
+        scrollTopBtn.classList.remove('show');
+    }
 });
 
 /**
@@ -108,6 +156,102 @@ document.addEventListener('DOMContentLoaded', () => {
     
     updateFavicon(); // Jalankan script pembuat favicon modern
 });
+
+/**
+ * Animasi Glitch Teks Hero (Acak)
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const heroName = document.getElementById('hero-name');
+    if (heroName) {
+        function triggerGlitch() {
+            heroName.classList.add('glitch-active');
+            setTimeout(() => {
+                heroName.classList.remove('glitch-active');
+            }, 300); // Durasi efek glitch 300ms
+
+            // Jadwalkan glitch berikutnya secara acak (antara 3 hingga 8 detik)
+            const nextGlitch = Math.random() * 5000 + 3000;
+            setTimeout(triggerGlitch, nextGlitch);
+        }
+        setTimeout(triggerGlitch, 2000); // Glitch pertama setelah 2 detik
+    }
+});
+
+/**
+ * Logic untuk Filter Kategori Portofolio
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            playUISound('click'); // Mainkan efek suara siber
+            
+            // Hapus class active dari semua tombol dan pindahkan ke tombol yang diklik
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            portfolioItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.classList.remove('hide');
+                    // Memicu ulang reflow DOM agar animasi dapat di-reset
+                    item.classList.remove('show-filtered');
+                    void item.offsetWidth; 
+                    item.classList.add('show-filtered');
+                } else {
+                    item.classList.add('hide');
+                    item.classList.remove('show-filtered');
+                }
+            });
+        });
+    });
+});
+
+/**
+ * Custom Cursor Logic (Gaya Neon Cyber)
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const cursor = document.getElementById('customCursor');
+    const follower = document.getElementById('customCursorFollower');
+    let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX; mouseY = e.clientY;
+        // Dot mengikuti mouse secara real-time
+        cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+    });
+
+    // Follower (cincin) mengikuti dengan efek delay halus menggunakan requestAnimationFrame
+    function animateFollower() {
+        followerX += (mouseX - followerX) * 0.15; // Kecepatan / Kehalusan mengikuti
+        followerY += (mouseY - followerY) * 0.15;
+        follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0) translate(-50%, -50%)`;
+        requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
+
+    // Deteksi hover pada elemen yang bisa diklik untuk mengubah kursor menjadi cincin menyala
+    document.body.addEventListener('mouseover', (e) => {
+        if (e.target.closest('a, button, .clickable, .portfolio-item, .thumb, .close-modal, .filter-btn')) {
+            follower.classList.add('cursor-hover');
+        }
+    });
+    document.body.addEventListener('mouseout', (e) => {
+        if (e.target.closest('a, button, .clickable, .portfolio-item, .thumb, .close-modal, .filter-btn')) {
+            follower.classList.remove('cursor-hover');
+        }
+    });
+});
+
+/**
+ * Fungsi untuk scroll ke posisi paling atas secara mulus (smooth)
+ */
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 /**
  * Fungsi ajaib untuk memodifikasi Favicon secara dinamis menjadi melingkar 
@@ -165,8 +309,21 @@ function updateFavicon() {
 function sendToWhatsApp(event) {
     event.preventDefault(); // Mencegah reload halaman
     
-    const name = document.getElementById('sender-name').value;
-    const message = document.getElementById('sender-message').value;
+    const nameInput = document.getElementById('sender-name');
+    const messageInput = document.getElementById('sender-message');
+    
+    // Menggunakan trim() untuk memastikan input bukan sekadar spasi kosong
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+    
+    // Validasi ekstra: hentikan eksekusi jika input kosong
+    if (!name || !message) {
+        alert("Mohon lengkapi nama dan pesan Anda sebelum mengirim.");
+        if (!name) nameInput.focus();
+        else messageInput.focus();
+        return;
+    }
+    
     const phoneNumber = "6281375200897"; // Format internasional tanpa '+'
     
     // Encode teks agar format enter dan spasi rapi di URL
